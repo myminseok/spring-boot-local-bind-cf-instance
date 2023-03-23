@@ -1,6 +1,18 @@
 java-cfenv-boot : https://docs.cloudfoundry.org/buildpacks/java/configuring-service-connections.html
 https://spring.io/blog/2015/04/27/binding-to-data-services-with-spring-boot-in-cloud-foundry
-https://github.com/spring-projects/spring-petclinic
+
+## ssh tunnel to backend instance.
+https://docs.cloudfoundry.org/devguide/deploy-apps/ssh-services.html
+```
+cf ssh-enabled MY-AWESOME-APP
+cf ssh -L 3306:service-instance-bosh-dns-from-key:3306 YOUR-HOST-APP
+```
+in another terminal
+
+```
+telnet 127.0.0.1 3306
+```
+## run app locally.
 
 ```
 export SPRING_PROFILES_ACTIVE=cloud
@@ -13,4 +25,8 @@ export VCAP_SERVICES='{"p.mysql": [
     }
   ]}'
 ```
-# spring-boot-local-bind-cf-instance
+
+```
+mvn spring-boot:run
+```
+

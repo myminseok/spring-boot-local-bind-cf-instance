@@ -6,3 +6,4 @@ export VCAP_SERVICES='{"p.mysql": [
       "tags":["mysql"]
     }
   ]}'
+export SPRING_PROFILES_ACTIVE=cloud

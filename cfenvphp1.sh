@@ -2,14 +2,34 @@ export LOGGING_LEVEL_ROOT=DEBUG
 
 export SPRING_PROFILES_ACTIVE=cloud
 
-export VCAP_SERVICES='{"p.mysql": [
+export VCAP_SERVICES='{
+   "p.mysql": [
     {
       "credentials": {"uri": "mysql://localhost:3306/service_instance_db?user=1ed4996b3eee490594e452860e01c14d&password=e0i82ip3oaafya6l&useSSL=false"
       },
       "name": "mydb",
       "tags":["mysql"]
     }
-  ]}'
+  ],
+   "p.rabbitmq": [
+    {
+      "credentials": {
+         "hostname": "localhost",
+         "uri": "amqp://951d25f1-c48a-4b36-ade5-17d81c957d06:KYA_5AGUpZT7PVSIQfw6bTil@localhost/671c6580-5644-430c-b82a-f2036df876bc",    
+         "http_api_uri": "https://test:test@localhost/api/",  
+        "ssl": false,
+        "username": "951d25f1-c48a-4b36-ade5-17d81c957d06",
+        "password": "KYA_5AGUpZT7PVSIQfw6bTil",
+        "vhost": "671c6580-5644-430c-b82a-f2036df876bc"
+      },
+      "label": "p.rabbitmq",
+      "name": "myrabbit",
+      "tags": [
+        "rabbitmq"
+      ]
+    }
+  ]
+  }'
 
 
 export VCAP_APPLICATION: {
